@@ -30,8 +30,7 @@ Thank you for trying out my sheet, and I thank you for your patience and input i
 2)On looking back, I need to add a "Roll" section for derived stats (Accuracy, Damage and Dodge).
 
 3)"Aspects" have no definition of the numbers for the "Uses" section. Will work on the background image design for that. Until then,
-  Top number (NONchangeable) = Number of Uses Total
-  Bottom num (CHANGEABLE) = Number of Uses Exhausted
+  Top number (NONchangeable) = Number of Uses Total | Bottom num (CHANGEABLE) = Number of Uses Exhausted
 
 4)Torments have no background as I'm trying to figure out how to make it so that the background repeats when a new Torment is added.
 
