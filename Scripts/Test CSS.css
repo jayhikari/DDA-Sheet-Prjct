@@ -1,0 +1,609 @@
+ /* ---   Main Radio Buttons   --- */
+ .sheet-character-sheet {display: none; }
+ .sheet-digiChar-sheet {display: none; }
+ 
+ input[type=radio].sheet-isChar:checked ~ .sheet-charPg,
+ input[type=radio].sheet-isDigi:checked ~ .sheet-digiPg
+ {
+   display: block;
+ }
+ 
+ input[type=radio].sheet-isBaby:checked ~ .sheet-babyPg,
+ input[type=radio].sheet-isInTr:checked ~ .sheet-inTrPg,
+ input[type=radio].sheet-isRook:checked ~ .sheet-rookPg,
+ input[type=radio].sheet-isCham:checked ~ .sheet-chamPg,
+ input[type=radio].sheet-isUlti:checked ~ .sheet-ultiPg,
+ input[type=radio].sheet-isMega:checked ~ .sheet-megaPg,
+ input[type=radio].sheet-isBrst:checked ~ .sheet-brstPg,
+ input[type=radio].sheet-isBrstX:checked ~ .sheet-brstXPg
+ {
+   display: block;
+ }
+ 
+ 
+ 
+  /* ---  Inputs  --- */
+ input[type="text"] {
+   background-color: transparent;
+   border-style: none none solid none;
+   border-color: black;
+ }
+ 
+ input[type="number"] {
+   background-color: transparent;
+   border: none;
+ }
+ 
+ select {
+   background-color: transparent;
+   border-style: none none solid solid;
+   border-color: black;
+   width: 140px;
+ }
+ 
+ textarea {
+   width: 380px;
+   height: 100px;
+   background-color: transparent;
+   border-style: none none solid solid;
+   border-color: black;
+ }
+ 
+ textarea:focus,
+ input[type="text"]:focus,
+ input[type="number"]:focus {
+   background-color: #00FFFF
+ }
+ 
+ input[disabled="true"] {
+   background-color: #DCDCDC;
+   border: none;
+ }
+ 
+ 
+ 
+     /* ---    General Styling   --- */
+ .sheet-flex-right {
+   display: flex;
+   align-items: right;
+ }
+ 
+ .sheet-flex-center {
+   display: flex;
+   align-items: center;
+ }
+ .sheet-flex-left {
+   display: flex;
+   align-items: left;
+ }
+ 
+ .sheet-flex-middle {
+   display: flex;
+   justify-content: center;
+ }
+ 
+ .sheet-flex-down {
+   flex-flow: column nowrap;
+ }
+ 
+ .sheet-section {
+   padding: 5px;
+ }
+ 
+ 
+ 
+ 
+ /* ---    Main Sheet    --- */
+ div.sheet-charSheet {
+   display: grid;
+   grid-template-columns: 4fr 5fr;
+   grid-template-rows: 2fr 4fr  4fr  2fr 3fr;
+   grid-template-areas:"logo       name"
+                       "stats      derived"
+                       "aspects    aspects"
+                       "tormentT   tormentT"
+                       "torments   torments";
+   grid-gap: 6px;
+   width:    800px; /* Defines the width and height of the sheet */
+   height:   1200px;
+   background-size: 650px 1200px; /* Sets the sheet border image to same size as sheet */
+   background-repeat: no-repeat;
+ }
+ 
+ 
+ div.sheet-logo{
+   grid-area: logo;
+   background-image: url(https://github.com/jayhikari/DDA-Sheet-Prjct/blob/master/Sheet-Images/digimon%20logo.png?raw=true);
+   background-size: 300px 90px;
+   background-repeat: no-repeat;
+   margin-left: 20px;
+   margin-top: 45px;
+ }
+ 
+ div.sheet-char-info {
+   grid-area: name;
+   background-image: url(https://github.com/jayhikari/DDA-Sheet-Prjct/blob/master/Sheet-Images/name%20box.png?raw=true);
+   background-size: 350px 200px;
+   background-repeat: no-repeat;
+   padding-left: 25px;
+ }
+ 
+ div.sheet-char-age {
+   display: grid;
+   grid-template-columns: 60px 150px;
+   grid-template-areas:"age     select";
+ }
+ 
+ div.sheet-char-age-input {
+   grid-area: age;
+ }
+ 
+ div.sheet-char-age-select {
+   grid-area: select;
+   padding-left: 50px;
+   width: 50px;
+ }
+ 
+ 
+ 
+ 
+ /* ---    Character Stats Section   --- */
+ div.sheet-char-main-stats {
+   grid-area: stats;
+   background-image: url(https://github.com/jayhikari/DDA-Sheet-Prjct/blob/master/Sheet-Images/human%20stats%20section.png?raw=true);
+   background-size: auto 100%;
+   background-repeat: no-repeat;
+   padding-top: 40px;
+   padding-left: 240px;
+   display: grid;
+   grid-template-rows: 12px 12px 12px 12px 110px 12px 12px 12px 12px 110px 12px 12px 12px 12px 110px 12px 12px 12px 12px 110px 12px 12px 12px 12px 110px;
+   grid-template-areas:"Agility"
+                       "Dodge"
+                       "Fight"
+                       "Stealth"
+                       "None"
+                       "Charisma"
+                       "Manipulate"
+                       "Performance"
+                       "Persuasion"
+                       "None2"
+                       "Wilpower"
+                       "Perception"
+                       "Bravery"
+                       "Decipher"
+                       "None3"
+                       "Body"
+                       "Athletics"
+                       "Endurance"
+                       "FeatStr"
+                       "None4"
+                       "Intelligence"
+                       "Computers"
+                       "Survival"
+                       "Knowledge"
+                       "None5";
+ }
+ 
+ div.sheet-char-agi-stats {
+   grid-area: Agility;
+   padding-top: 40px;
+   padding-left: 50px;
+ }
+ 
+     div.sheet-char-dod {
+       grid-area: Dodge;
+       padding-top: 45px;
+       padding-left: 40px;
+     }
+ 
+     div.sheet-char-fig {
+       grid-area: Fight;
+       padding-top: 55px;
+       padding-left: 20px;
+     }
+ 
+     div.sheet-char-ste {
+       grid-area: Stealth;
+       padding-top: 65px;
+     }
+ 
+ div.sheet-char-cha-stats {
+   grid-area: Charisma;
+   padding-top: 33px;
+   padding-left: 50px;
+ }
+ 
+     div.sheet-char-man {
+       grid-area: Manipulate;
+       padding-top: 35px;
+       padding-left: 40px;
+     }
+ 
+     div.sheet-char-prf {
+       grid-area: Performance;
+       padding-top: 45px;
+       padding-left: 20px;
+     }
+ 
+     div.sheet-char-prs {
+       grid-area: Persuasion;
+       padding-top: 55px;
+     }
+ 
+ div.sheet-char-wil-stats {
+   grid-area: Wilpower;
+   padding-top: 20px;
+   padding-left: 50px;
+ }
+ 
+     div.sheet-char-prc {
+       grid-area: Perception;
+       padding-top: 25px;
+       padding-left: 40px;
+     }
+ 
+     div.sheet-char-bra {
+       grid-area: Bravery;
+       padding-top: 35px;
+       padding-left: 20px;
+     }
+ 
+     div.sheet-char-dec {
+       grid-area: Decipher;
+       padding-top: 43px;
+     }
+ 
+ div.sheet-char-bod-stats {
+   grid-area: Body;
+   padding-top: 12px;
+   padding-left: 50px;
+ }
+ 
+     div.sheet-char-ath {
+       grid-area: Athletics;
+       padding-top: 15px;
+       padding-left: 40px;
+     }
+ 
+     div.sheet-char-end {
+       grid-area: Endurance;
+       padding-top: 25px;
+       padding-left: 20px;
+     }
+ 
+     div.sheet-char-fos {
+       grid-area: FeatStr;
+       padding-top: 35px;
+     }
+ 
+ div.sheet-char-int-stats {
+   grid-area: Intelligence;
+   padding-top: 0px;
+   padding-left: 50px;
+ }
+ 
+     div.sheet-char-com {
+       grid-area: Computers;
+       padding-top: 5px;
+       padding-left: 40px;
+     }
+ 
+     div.sheet-char-sur {
+       grid-area: Survival;
+       padding-top: 15px;
+       padding-left: 20px;
+     }
+ 
+     div.sheet-char-kno {
+       grid-area: Knowledge;
+       padding-top: 25px;
+     }
+ 
+ 
+ /* ---    Character Derived Section   --- */
+ div.sheet-char-derived-stats {
+   grid-area: derived;
+   background-image: url(https://github.com/jayhikari/DDA-Sheet-Prjct/blob/master/Sheet-Images/derived%20stats%202.png?raw=true);
+   background-size: 350px 700px;
+   background-repeat: no-repeat;
+   background-position: 0px;
+   display: grid;
+   grid-template-rows: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
+   grid-template-areas:"Create"
+                       "Movement"
+                       "Health"
+                       "Arm"
+                       "Acc"
+                       "Dam"
+                       "Dod"
+                       "Ins"
+                       "San"
+                       "SetRoll";
+ }
+ 
+ div.sheet-char-cp {
+   grid-area: Create;
+   padding-top: 117px;
+   padding-left: 10px;
+   display: grid;
+   grid-template-columns: 40px 35px 35px 35px;
+   grid-template-areas:"Start Total Mod Used";
+ }
+ 
+       div.sheet-char-cpStart {
+         grid-area: Start;
+       }
+ 
+       div.sheet-char-cpTotal {
+         grid-area: Total;
+       }
+ 
+       div.sheet-char-cpTorment {
+         grid-area: Mod;
+       }
+ 
+       div.sheet-char-cpUsed {
+         grid-area: Used;
+       }
+ 
+ div.sheet-char-move {
+   grid-area: Movement;
+   padding-left: 200px;
+   padding-top: 100px;
+   display: grid;
+   grid-template-columns: 45px 45px;
+   grid-template-areas:"MoveMod MoveTot";
+ }
+ 
+       div.sheet-char-move-mod {
+         grid-area: MoveMod;
+       }
+ 
+       div.sheet-char-move-total {
+         grid-area: MoveTot;
+       }
+ 
+ div.sheet-char-hp {
+   grid-area: Health;
+   padding-top: 200px;
+   padding-left: 40px;
+   display: grid;
+   grid-template-columns: 45px 45px 45px;
+   grid-template-areas:"HealthMod HealthTotal HealthCurrent";
+ }
+ 
+       div.sheet-char-hp-mod {
+         grid-area: HealthMod;
+       }
+ 
+       div.sheet-char-hp-total {
+         grid-area: HealthTotal;
+       }
+ 
+       div.sheet-char-hp-current {
+         grid-area: HealthCurrent;
+       }
+ 
+ div.sheet-char-arm {
+   grid-area: Arm;
+   padding-left: 230px;
+   padding-top: 180px;
+   display: grid;
+   grid-template-columns: 45px 45px;
+   grid-template-areas:"ArmMod ArmTot";
+ }
+ 
+       div.sheet-char-arm-mod {
+         grid-area: ArmMod;
+       }
+ 
+       div.sheet-char-arm-total {
+         grid-area: ArmTot;
+       }
+ 
+ div.sheet-char-acc {
+   grid-area: Acc;
+   padding-top: 280px;
+   padding-left: 10px;
+ }
+ 
+ div.sheet-char-dam {
+   grid-area: Dam;
+   padding-top: 260px;
+   padding-left: 120px;
+ }
+ 
+ div.sheet-char-dodDer {
+   grid-area: Dod;
+   padding-top: 240px;
+   padding-left: 230px;
+ }
+ 
+ div.sheet-char-insp {
+   grid-area: Ins;
+   padding-top: 340px;
+   padding-left: 40px;
+ }
+ 
+ div.sheet-char-sanity {
+   grid-area: San;
+   padding-top: 270px;
+   display: grid;
+   grid-template-columns: 45px 45px 100px 45px;
+   grid-template-areas:"SanCurrent SanMax SanType SanRoll";
+ }
+ 
+       div.sheet-char-san-curr {
+         grid-area: SanCurrent;
+         padding-top: 45px;
+         padding-left: 200px;
+       }
+ 
+       div.sheet-char-san-max {
+         grid-area: SanMax;
+         padding-top: 45px;
+         padding-left: 200px;
+       }
+ 
+       div.sheet-char-san-type {
+         grid-area: SanType;
+         padding-top: 85px;
+         padding-left: 95px;
+       }
+ 
+       div.sheet-char-san-roll {
+         grid-area: SanRoll;
+         padding-left: 100px;
+       }
+ 
+ div.sheet-char-roll {
+   grid-area: SetRoll;
+   padding-top: 430px;
+   padding-left: 70px;
+   display: grid;
+   grid-template-columns: 100px 45px;
+   grid-template-rows: 50px 50px;
+   grid-template-areas:"RollStats   RollButton"
+                       "RollDerived RollDerButton";
+ }
+ 
+       div.sheet-char-roll-atr {
+         grid-area: RollStats;
+         padding-top: 15px;
+         padding-left: 80px;
+       }
+ 
+       div.sheet-char-roll-button {
+         grid-area: RollButton;
+         padding-top: 30px;
+         padding-left: 120px;
+       }
+
+div.sheet-char-der-roll {
+  grid-area: RollDerived;
+  padding-top: 30px;
+  padding-left: 80px;
+}
+
+div.sheet-char-roll-derived {
+  grid-area: RollDerButton;
+  padding-top: 40px;
+  padding-left: 120px;
+}
+ 
+ 
+ 
+ 
+ /* ---    Aspects Section   --- */
+ div.sheet-aspects {
+   grid-area: aspects;
+   background-image: url(https://github.com/jayhikari/DDA-Sheet-Prjct/blob/master/Sheet-Images/Aspects.png?raw=true);
+   background-size: 725px 500px;
+   background-repeat: no-repeat;
+   padding-top: 70px;
+   padding-left: 50px;
+   padding-bottom: 180px;
+   display: grid;
+   grid-template-columns: 200px 50px;
+   grid-template-rows: 35px 80px 35px 80px;
+   grid-template-areas:"AspName1 AspType1"
+                       "AspDesc1 AspUses1"
+                       "AspName2 AspType2"
+                       "AspDesc2 AspUses2";
+ }
+ 
+ div.sheet-aspect-name1 {
+   grid-area: AspName1;
+   padding-left: 35px;
+ 
+ }
+ 
+ div.sheet-aspect-desc1 {
+   grid-area: AspDesc1;
+   padding-top: 15px;
+ }
+ 
+ div.sheet-aspect-select1 {
+   grid-area: AspType1;
+   padding-top: 35px;
+   padding-left: 240px;
+ }
+ 
+ div.sheet-aspect-curr1 {
+   grid-area: AspUses1;
+   padding-top: 65px;
+   padding-left: 320px;
+ }
+ 
+ div.sheet-aspect-name2 {
+   grid-area: AspName2;
+   padding-top: 90px;
+   padding-left: 35px;
+ }
+ 
+ div.sheet-aspect-desc2 {
+   grid-area: AspDesc2;
+   padding-top: 105px;
+ }
+ 
+ div.sheet-aspect-select2 {
+   grid-area: AspType2;
+   padding-top: 125px;
+   padding-left: 240px;
+ }
+ 
+ div.sheet-aspect-curr2 {
+   grid-area: AspUses2;
+   padding-top: 155px;
+   padding-left: 320px;
+ }
+ 
+ 
+ 
+ /* ---    Torments Section    --- */
+ div.sheet-torment-title {
+   grid-area: tormentT;
+   background-image: url(https://github.com/jayhikari/DDA-Sheet-Prjct/blob/master/Sheet-Images/Torments.png?raw=true);
+   background-size: 750px 100px;
+   background-repeat: no-repeat;
+   padding-bottom: 100px;
+ }
+
+ div.sheet-torments-rep {
+   grid-area: torments;
+ }
+ div.sheet-torments-rep-main {
+   background-image: url(https://github.com/jayhikari/DDA-Sheet-Prjct/blob/master/Sheet-Images/Torments-main.png?raw=true);
+   background-size: 725px 225px;
+   background-repeat: no-repeat;
+   padding-bottom: 100px;
+   display: grid;
+   grid-template-columns: 200px 50px;
+   grid-template-rows: 35px 80px;
+   grid-template-areas:"TorName TorType"
+                       "TorDesc TorRem";
+ }
+
+ div.sheet-torments-rep-name {
+   grid-area: TorName;
+   padding-top: 35px;
+   padding-left: 85px;
+ }
+
+ div.sheet-torments-rep-select {
+   grid-area: TorType;
+   padding-top: 70px;
+   padding-left: 330px;
+ }
+
+ div.sheet-torments-rep-desc {
+   grid-area: TorDesc;
+   padding-top: 50px;
+   padding-left: 50px;
+ }
+
+ div.sheet-torments-rep-numbers {
+   grid-area: TorRem;
+   padding-top: 70px;
+   padding-left: 410px;
+ }
